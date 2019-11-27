@@ -33,3 +33,7 @@ class BasePage(object):
         # element = WebDriverWait(self.driver,timeout,poll).until(lambda x:x.find_element(By.XPATH,xpath))
         # print('获取的toast信息为：',element.text)
         return self.find_element_func(location).text
+    def get_attribute_func(self,location,attr_name):
+        """元素获取属性方法"""
+        element =self.find_element_func(location)
+        return element.get_attribute(attr_name)
