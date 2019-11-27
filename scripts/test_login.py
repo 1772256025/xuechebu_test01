@@ -24,4 +24,5 @@ class TestLogin(object):
         self.page_factory.login_page.click_login_btn()#点击登录按钮
         self.page_factory.login_page.click_con_btn()#点击签到确认按钮
         nick_name = self.page_factory.login_page.get_nick_name()#获取昵称
-        print('昵称是：',nick_name)#断言判断结果
+        print('昵称是：',nick_name)
+        assert '8189' in nick_name #断言判断结果
