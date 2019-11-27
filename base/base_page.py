@@ -24,4 +24,5 @@ class BasePage(object):
         element.send_keys(text)
 
     def get_text_func(self,location):
+        """获取特定文本信息方法"""
         return self.find_element_func(location).text
