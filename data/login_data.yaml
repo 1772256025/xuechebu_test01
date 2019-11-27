@@ -1,0 +1,25 @@
+login001:
+  name: 18132519715
+  pwd: 999999
+  expect: 8189
+  is_success: True
+login002:
+  name:  18132519715
+  pwd: 999999
+  expect: 8189
+  is_success: True
+login003:
+  name: 18132519715
+  pwd: 999999
+  expect: 8189
+  is_success: True
+login009:
+  name:
+  pwd: 123456
+  expect: false
+  is_success: False
+login0012:
+  name: 18132519715
+  pwd:
+  expect: false
+  is_success: False
