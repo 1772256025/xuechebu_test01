@@ -13,3 +13,4 @@ passsword = By.ID, 'com.bjcsxq.chat.carfriend:id/login_pwd_et'  # 密码
 login_btn = By.ID, 'com.bjcsxq.chat.carfriend:id/login_btn'  # 登录按钮
 con_btn = By.XPATH, '//*[contains(@text,"确定")]'  # 签到提示框确定按钮
 nick_name = By.ID, 'com.bjcsxq.chat.carfriend:id/mine_username_tv'  # 昵称
+toast = By.XPATH,'//*[contains(@text,"账户未注册")]'

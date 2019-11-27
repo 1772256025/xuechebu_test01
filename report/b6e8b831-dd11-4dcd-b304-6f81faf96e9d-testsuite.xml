@@ -1,0 +1,100 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1574843513465" stop="1574843607212">
+  <description>
+登录测试用例
+</description>
+  <name>test_login</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1574843513465" status="passed" stop="1574843548079">
+      <description>登录测试方法</description>
+      <name>TestLogin.test_login[18132519715-999999-8189-True]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="99068-MainThread"/>
+        <label name="host" value="LAPTOP-VGP6F4O0"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1574843548126" status="failed" stop="1574843607212">
+      <description>登录测试方法</description>
+      <name>TestLogin.test_login[13011110000-123456-\u8d26\u53f7\u8fd8\u672a\u767b\u5f55-False]</name>
+      <failure>
+        <message>TimeoutException: Message: 
+</message>
+        <stack-trace>self = &lt;test_login.TestLogin object at 0x00000274E4240860&gt;, name = '13011110000'
+pwd = '123456', expect = '账号还未登录', is_success = False
+
+    @pytest.mark.parametrize('name,pwd,expect,is_success', [('18132519715', '999999', '8189',True),
+                                                            ('13011110000','123456','账号还未登录',False)])
+    def test_login(self, name, pwd, expect,is_success):
+        """登录测试方法"""
+        if is_success:
+            self.page_factory.home_page.click_mine()  # 点击我的
+            self.page_factory.mine_page.click_login()  # 点击登录注册
+            self.page_factory.login_page.input_username(name)  # 输入用户名
+            self.page_factory.login_page.input_password(pwd)  # 输入密码
+            self.page_factory.login_page.click_login_btn()  # 点击登录按钮
+            self.page_factory.login_page.click_con_btn()  # 点击签到确认按钮
+            nick_name = self.page_factory.login_page.get_nick_name()  # 获取昵称
+            print('昵称是：', nick_name)
+            assert expect in nick_name  # 断言判断结果
+        else:
+            self.page_factory.home_page.click_mine()  # 点击我的
+            self.page_factory.mine_page.click_login()  # 点击登录注册
+            self.page_factory.login_page.input_username(name)  # 输入用户名
+            self.page_factory.login_page.input_password(pwd)  # 输入密码
+            self.page_factory.login_page.click_login_btn()  # 点击登录按钮
+&gt;           message =self.page_factory.login_page.get_toast()
+
+scripts\test_login.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+page\login_page.py:36: in get_toast
+    return self.get_toast_message(self.toast)
+base\base_page.py:35: in get_toast_message
+    return self.find_element_func(location).text
+base\base_page.py:13: in find_element_func
+    element = WebDriverWait(self.driver, timeout, poll).until(lambda x: x.find_element(*location))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;selenium.webdriver.support.wait.WebDriverWait (session="09432ded-6764-4320-afbc-0b0fbfbe3380")&gt;
+method = &lt;function BasePage.find_element_func.&lt;locals&gt;.&lt;lambda&gt; at 0x00000274E422FEA0&gt;
+message = ''
+
+    def until(self, method, message=''):
+        """Calls the method provided with the driver as an argument until the \
+        return value is not False."""
+        screen = None
+        stacktrace = None
+    
+        end_time = time.time() + self._timeout
+        while True:
+            try:
+                value = method(self._driver)
+                if value:
+                    return value
+            except self._ignored_exceptions as exc:
+                screen = getattr(exc, 'screen', None)
+                stacktrace = getattr(exc, 'stacktrace', None)
+            time.sleep(self._poll)
+            if time.time() &gt; end_time:
+                break
+&gt;       raise TimeoutException(message, screen, stacktrace)
+E       selenium.common.exceptions.TimeoutException: Message:
+
+d:\python\lib\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="99068-MainThread"/>
+        <label name="host" value="LAPTOP-VGP6F4O0"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>

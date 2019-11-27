@@ -23,6 +23,13 @@ class BasePage(object):
         element.clear()
         element.send_keys(text)
 
-    def get_text_func(self,location):
+    def get_text_func(self, location):
         """获取特定文本信息方法"""
+        return self.find_element_func(location).text
+
+    def get_toast_message(self, location):
+        """获取toast信息"""
+        # xpath = '//*[contains(@text."{}")]'.format(text)
+        # element = WebDriverWait(self.driver,timeout,poll).until(lambda x:x.find_element(By.XPATH,xpath))
+        # print('获取的toast信息为：',element.text)
         return self.find_element_func(location).text
